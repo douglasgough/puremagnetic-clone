@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
+import { Menu, X, Search, User, ShoppingCart } from 'lucide-react';
+import { useState } from 'react';
 function Navbar() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
       <div className="bg-[#ff00ff] text-white py-2 px-4 text-center text-sm font-medium">
@@ -43,7 +46,8 @@ function Navbar() {
                 </a>
               </div>
             </div>
-            <div className="flex items-center gap-4">
+            {/* Desktop Right Menu */}
+            <div className="hidden md:flex items-center gap-4">
               <button className="text-sm font-medium text-gray-900 hover:text-gray-600">
                 SEARCH
               </button>
@@ -54,8 +58,61 @@ function Navbar() {
                 CART
               </button>
             </div>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-gray-900 hover:text-gray-600"
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </button>
           </div>
         </div>
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-200 bg-white">
+            <div className="px-4 py-4 space-y-4">
+              <Link
+                to="/collections/devices"
+                className="block text-base font-medium text-gray-900 hover:text-gray-600 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                DIGITAL
+              </Link>
+              <button className="block w-full text-left text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+                PHYSICAL
+              </button>
+              <Link
+                to="/pages/about-puremagnetik"
+                className="block text-base font-medium text-gray-900 hover:text-gray-600 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                ABOUT
+              </Link>
+              <a href="#" className="block text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+                HELP
+              </a>
+              <div className="pt-4 border-t border-gray-200 space-y-4">
+                <button className="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+                  <Search className="w-5 h-5" />
+                  SEARCH
+                </button>
+                <button className="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+                  <User className="w-5 h-5" />
+                  ACCOUNT
+                </button>
+                <button className="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+                  <ShoppingCart className="w-5 h-5" />
+                  CART
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </nav>
     </>
   );
