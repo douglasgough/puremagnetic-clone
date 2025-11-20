@@ -2,12 +2,500 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Puremagnetik - Audio Plugins and Sounds</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+      .mobile-menu {
+        display: none;
+      }
+      .mobile-menu.open {
+        display: block;
+      }
+    </style>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="bg-gray-50">
+    <!-- Top Banner -->
+    <div class="bg-pink-500 text-white py-2 px-4 text-center text-sm font-medium">
+      NOVEMBER SALE! 50% ALL PLUGINS, BUNDLES AND MORE. USE CODE: NOV25
+    </div>
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-8">
+            <a href="#" onclick="navigateTo('home'); return false;" class="flex-shrink-0">
+              <img
+                src="https://puremagnetik.com/cdn/shop/files/Puremagnetik_Logo_Only_Black_60_7b501672-d1b4-4690-9f16-a777edd0f31e_600x200.png?v=1614325392"
+                alt="Puremagnetik"
+                class="h-8 w-auto"
+              />
+            </a>
+            <div class="hidden md:flex items-center gap-6">
+              <a href="#" onclick="navigateTo('plugins'); return false;" class="text-sm font-medium text-gray-900 hover:text-gray-600">
+                DIGITAL
+              </a>
+              <button class="text-sm font-medium text-gray-900 hover:text-gray-600">
+                PHYSICAL
+              </button>
+              <a href="#" onclick="navigateTo('about'); return false;" class="text-sm font-medium text-gray-900 hover:text-gray-600">
+                ABOUT
+              </a>
+              <a href="#" class="text-sm font-medium text-gray-900 hover:text-gray-600">
+                HELP
+              </a>
+            </div>
+          </div>
+          <!-- Desktop Right Menu -->
+          <div class="hidden md:flex items-center gap-4">
+            <button class="text-sm font-medium text-gray-900 hover:text-gray-600">SEARCH</button>
+            <button class="text-sm font-medium text-gray-900 hover:text-gray-600">ACCOUNT</button>
+            <button class="text-sm font-medium text-gray-900 hover:text-gray-600">CART</button>
+          </div>
+          <!-- Mobile Menu Button -->
+          <button onclick="toggleMobileMenu()" class="md:hidden p-2 text-gray-900 hover:text-gray-600">
+            <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="mobile-menu md:hidden border-t border-gray-200 bg-white">
+        <div class="px-4 py-4 space-y-4">
+          <a href="#" onclick="navigateTo('plugins'); toggleMobileMenu(); return false;" class="block text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+            DIGITAL
+          </a>
+          <button class="block w-full text-left text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+            PHYSICAL
+          </button>
+          <a href="#" onclick="navigateTo('about'); toggleMobileMenu(); return false;" class="block text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+            ABOUT
+          </a>
+          <a href="#" class="block text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+            HELP
+          </a>
+          <div class="pt-4 border-t border-gray-200 space-y-4">
+            <button class="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+              SEARCH
+            </button>
+            <button class="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+              ACCOUNT
+            </button>
+            <button class="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
+              CART
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+      <!-- Hero Section -->
+      <section class="bg-white py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+              <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                SAVE 50% ON SOUNDS, DEVICES AND BUNDLES
+              </h1>
+              <div class="space-y-3 text-gray-700">
+                <p class="text-lg">
+                  Now through November 30th, upgrade your music production arsenal with Puremagnetik's plugins and sounds.
+                </p>
+                <p class="text-lg">
+                  Use coupon code <span class="font-bold">NOV25</span> at checkout to enjoy 50% off all plugins and sounds in your cart.
+                </p>
+              </div>
+            </div>
+            <div class="relative">
+              <img
+                src="https://jojdwiugelqhcajbccxn.supabase.co/storage/v1/object/public/images/1763655131194-c168911f-9ffd-45cc-9be0-f9a8ce27f3e7-screenshot.jpg"
+                alt="Plugin Collection"
+                class="w-full h-auto shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Product Grid -->
+      <section class="py-16 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-square">
+                  <img src="https://picsum.photos/id/1/400/400" alt="Digital Plugins" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="mt-3 space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Digital Plugins</h3>
+                <p class="text-sm text-gray-500">Audio Software</p>
+              </div>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-square">
+                  <img src="https://picsum.photos/id/180/400/400" alt="LARS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="mt-3 space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">LARS</h3>
+                <p class="text-sm text-gray-500">Guitar Pedal</p>
+              </div>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-square">
+                  <img src="https://picsum.photos/id/102/400/400" alt="Vinyl Collection" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="mt-3 space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Vinyl Collection</h3>
+                <p class="text-sm text-gray-500">Physical Media</p>
+              </div>
+            </div>
+            <div class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
+                <div class="aspect-square">
+                  <img src="https://picsum.photos/id/1/400/400" alt="Sage Plugin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="mt-3 space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Sage Plugin</h3>
+                <p class="text-sm text-gray-500">Spectral Delay</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Featured Product -->
+      <section class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+          <div class="text-center mb-8">
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto">
+              A cutting-edge spectral processor for crafting shimmering rhythmic patterns and subtle harmonic overtones.
+            </p>
+          </div>
+          <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-4">
+              <div class="bg-gray-100 overflow-hidden shadow-lg">
+                <img src="https://picsum.photos/id/1/600/500" alt="Sage Spectral Delay" class="w-full h-auto" />
+              </div>
+              <div class="bg-gray-100 overflow-hidden shadow-lg">
+                <img src="https://picsum.photos/id/180/600/400" alt="Hardware Setup" class="w-full h-auto" />
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-2">Sage | Spectral Delay</h2>
+                <p class="text-2xl font-semibold text-gray-900">$35.00</p>
+              </div>
+              <div class="space-y-3">
+                <button class="w-full bg-white border-2 border-black text-black hover:bg-black hover:text-white transition-colors py-6 text-base font-medium">
+                  ADD TO CART
+                </button>
+                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-6 text-base font-medium rounded-md">
+                  Buy with ShopPay
+                </button>
+                <button class="w-full text-sm text-gray-600 hover:text-gray-900 underline py-2">
+                  MORE PAYMENT OPTIONS
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Plugins Page -->
+    <div id="plugins-page" class="page">
+      <div class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-4">PLUGINS</h1>
+            <p class="text-gray-600 italic max-w-3xl mx-auto">
+              "Some of the most musically inspiring tools you can find on the market" —AudioNewsRoom
+            </p>
+          </div>
+          <div class="flex flex-col items-center mb-8">
+            <label class="text-sm text-gray-700 mb-2">SORT BY:</label>
+            <select class="border border-gray-300 rounded px-4 py-2 text-sm bg-white">
+              <option>Newest to Oldest</option>
+              <option>Oldest to Newest</option>
+              <option>Price: Low to High</option>
+              <option>Price: High to Low</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                <div class="aspect-[4/3]">
+                  <img src="https://picsum.photos/id/1/400/300" alt="Plugin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="text-center space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Permute | Buffer Modulation Matrix</h3>
+                <p class="text-sm text-gray-600">$20.00</p>
+              </div>
+            </a>
+            <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                <div class="aspect-[4/3]">
+                  <img src="https://picsum.photos/id/2/400/300" alt="Plugin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="text-center space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">PM-202 | Hybrid Complex Oscillator</h3>
+                <p class="text-sm text-gray-600">$25.00</p>
+              </div>
+            </a>
+            <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                <div class="aspect-[4/3]">
+                  <img src="https://picsum.photos/id/3/400/300" alt="Plugin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="text-center space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Auros | Ambient Texture Shaper</h3>
+                <p class="text-sm text-gray-600">$19.00</p>
+              </div>
+            </a>
+            <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                <div class="aspect-[4/3]">
+                  <img src="https://picsum.photos/id/4/400/300" alt="Plugin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="text-center space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Sage | Spectral Delay</h3>
+                <p class="text-sm text-gray-600">$35.00</p>
+              </div>
+            </a>
+            <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                <div class="aspect-[4/3]">
+                  <img src="https://picsum.photos/id/5/400/300" alt="Plugin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="text-center space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Bunker | Gritebox Processor</h3>
+                <p class="text-sm text-gray-600">$25.00</p>
+              </div>
+            </a>
+            <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+              <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                <div class="aspect-[4/3]">
+                  <img src="https://picsum.photos/id/6/400/300" alt="Plugin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </div>
+              </div>
+              <div class="text-center space-y-1">
+                <h3 class="text-sm font-medium text-gray-900">Twine | Lossy MultiEffects Mixer</h3>
+                <p class="text-sm text-gray-600">$35.00</p>
+              </div>
+            </a>
+          </div>
+          <div class="flex justify-center items-center gap-2">
+            <button class="px-3 py-1 text-sm text-gray-900 hover:underline">1</button>
+            <button class="px-3 py-1 text-sm text-gray-600 hover:text-gray-900 hover:underline">2</button>
+            <button class="px-3 py-1 text-sm text-gray-600 hover:text-gray-900 hover:underline">3</button>
+            <button class="px-3 py-1 text-sm text-gray-600 hover:text-gray-900">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About Page -->
+    <div id="about-page" class="page">
+      <div class="bg-white">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <div class="space-y-12">
+            <div class="text-center">
+              <h1 class="text-3xl font-bold text-gray-900 mb-12">About</h1>
+            </div>
+            <div class="space-y-8 text-gray-700">
+              <p class="text-lg leading-relaxed text-center">
+                Puremagnetik makes creative music tools and pioneering sound recordings.
+              </p>
+              <div class="space-y-6 pt-8">
+                <p class="leading-relaxed">
+                  Puremagnetik has been described by <a href="#" class="underline hover:text-gray-900">Create Digital Music</a> as <em>"one of the most experienced sound library houses around"</em> and by <a href="#" class="underline hover:text-gray-900">Electronic Beats</a> as <em>"Changing the album format in exciting, interactive ways."</em>
+                </p>
+                <p class="leading-relaxed">
+                  Founded in 2006, Puremagnetik originally established itself as a premier sound design company collaborating with <a href="#" class="underline hover:text-gray-900">Ableton AG</a> based in Berlin.
+                </p>
+                <p class="leading-relaxed">
+                  Beginning in 2016, Puremagnetik embarked on a plugin development initiative using the open-source <a href="#" class="underline hover:text-gray-900">Csound</a> audio language. Since that time, the company has developed several unique tools for sound design, synthesis and electronic music composition.
+                </p>
+                <p class="leading-relaxed">
+                  In 2018, Puremagnetik launched its music label focusing on several experimental and ambient genres.
+                </p>
+                <p class="leading-relaxed">
+                  Email : hello@puremagnetik.com
+                </p>
+                <p class="leading-relaxed">
+                  Instagram: <a href="http://instagram.com/puremagnetik" class="underline hover:text-gray-900" target="_blank">http://instagram.com/puremagnetik</a>
+                </p>
+                <p class="leading-relaxed">
+                  Need Help? <a href="https://puremagnetik.com/pages/puremagnetik-help-faqs" class="underline hover:text-gray-900" target="_blank">https://puremagnetik.com/pages/puremagnetik-help-faqs</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Product Detail Page -->
+    <div id="product-page" class="page">
+      <div class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+              <div class="bg-gray-100 overflow-hidden">
+                <img src="https://jojdwiugelqhcajbccxn.supabase.co/storage/v1/object/public/images/1763656290995-c168911f-9ffd-45cc-9be0-f9a8ce27f3e7-screenshot.jpg" alt="Permute Buffer Modulation Matrix" class="w-full h-auto" />
+              </div>
+            </div>
+            <div class="space-y-6">
+              <div>
+                <h1 class="text-2xl font-medium text-gray-900 mb-2">Permute | Buffer Modulation Matrix</h1>
+                <p class="text-xl font-semibold text-gray-900">$20.00</p>
+              </div>
+              <button class="w-full bg-black hover:bg-gray-800 text-white py-6 text-base font-medium">
+                ADD TO CART
+              </button>
+            </div>
+          </div>
+          <div class="max-w-4xl space-y-12">
+            <div class="space-y-4">
+              <h2 class="text-xl font-bold text-gray-900">Overview</h2>
+              <p class="text-gray-700 leading-relaxed">
+                Permute is a dynamic and versatile audio manipulation tool designed for producers, sound designers, and experimental musicians. Combining intuitive controls with deep modulation capabilities, Permute invites you to explore granular looping, spectral shaping, and spatial processing to craft intricate soundscapes and rhythmic textures.
+              </p>
+            </div>
+            <div class="space-y-6">
+              <h2 class="text-xl font-bold text-gray-900">Key Features</h2>
+              <ul class="space-y-4 text-gray-700">
+                <li class="leading-relaxed">
+                  <strong>Granular Looping:</strong> Effortlessly capture and rearrange audio loops with precise control over start, window size, and placement.
+                </li>
+                <li class="leading-relaxed">
+                  <strong>Customizable Filters:</strong> Sculpt your sound with Low-Pass, High-Pass, and Band-Pass filters.
+                </li>
+                <li class="leading-relaxed">
+                  <strong>Space and Reverb:</strong> Expand your sound's depth with lush, configurable reverb and spatial effects.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-20">
+            <h2 class="text-2xl font-medium text-gray-900 text-center mb-12">You may also like</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+                <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                  <div class="aspect-square">
+                    <img src="https://picsum.photos/id/180/400/400" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                </div>
+                <div class="text-center space-y-1">
+                  <h3 class="text-sm font-medium text-gray-900">Audio Buffer Devices</h3>
+                  <p class="text-sm text-gray-600">$60.00</p>
+                </div>
+              </a>
+              <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+                <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                  <div class="aspect-square">
+                    <img src="https://picsum.photos/id/181/400/400" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                </div>
+                <div class="text-center space-y-1">
+                  <h3 class="text-sm font-medium text-gray-900">Micro-Memory Reverb</h3>
+                  <p class="text-sm text-gray-600">$20.00</p>
+                </div>
+              </a>
+              <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+                <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                  <div class="aspect-square">
+                    <img src="https://picsum.photos/id/182/400/400" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                </div>
+                <div class="text-center space-y-1">
+                  <h3 class="text-sm font-medium text-gray-900">Spectral Processor</h3>
+                  <p class="text-sm text-gray-600">$25.00</p>
+                </div>
+              </a>
+              <a href="#" onclick="navigateTo('product'); return false;" class="group cursor-pointer">
+                <div class="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                  <div class="aspect-square">
+                    <img src="https://picsum.photos/id/183/400/400" alt="Product" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                  </div>
+                </div>
+                <div class="text-center space-y-1">
+                  <h3 class="text-sm font-medium text-gray-900">Pitch Mangler</h3>
+                  <p class="text-sm text-gray-600">$25.00</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="space-y-2">
+            <p class="text-sm text-gray-600">© Puremagnetik LLC 2024</p>
+            <div class="flex items-center gap-4">
+              <a href="#" class="text-gray-600 hover:text-gray-900">Instagram</a>
+              <a href="#" class="text-gray-600 hover:text-gray-900">YouTube</a>
+            </div>
+          </div>
+          <div class="space-y-2 md:text-right">
+            <nav class="flex flex-col gap-2">
+              <a href="#" class="text-sm text-gray-600 hover:text-gray-900">Account</a>
+              <a href="#" class="text-sm text-gray-600 hover:text-gray-900">Search</a>
+              <a href="#" class="text-sm text-gray-600 hover:text-gray-900">Help</a>
+              <a href="#" class="text-sm text-gray-600 hover:text-gray-900">Returns</a>
+              <a href="#" class="text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>
+            </nav>
+            <div class="pt-4">
+              <select class="text-sm border border-gray-300 rounded px-3 py-2 bg-white">
+                <option>USD $</option>
+                <option>EUR €</option>
+                <option>GBP £</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      function navigateTo(page) {
+        // Hide all pages
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        // Show selected page
+        document.getElementById(page + '-page').classList.add('active');
+        // Scroll to top
+        window.scrollTo(0, 0);
+      }
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+        menu.classList.toggle('open');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      }
+    </script>
   </body>
 </html>
