@@ -180,7 +180,7 @@ function PluginsPage() {
               to="/collections/devices/products/permute-buffer-modulation-matrix-ableton-effects-plugin"
               className="group cursor-pointer"
             >
-              <div className="relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+              <div className="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
                 <div className="aspect-[4/3]">
                   <img
                     src={plugin.image}

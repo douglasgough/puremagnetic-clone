@@ -10,14 +10,14 @@ function FeaturedProduct() {
         </div>
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-4">
-            <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-gray-100 overflow-hidden shadow-lg">
               <img
                 src="https://picsum.photos/id/1/600/500"
                 alt="Sage Spectral Delay"
                 className="w-full h-auto"
               />
             </div>
-            <div className="bg-gray-100 rounded-lg overflow-hidden shadow-lg">
+            <div className="bg-gray-100 overflow-hidden shadow-lg">
               <img
                 src="https://picsum.photos/id/180/600/400"
                 alt="Hardware Setup"

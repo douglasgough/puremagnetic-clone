@@ -33,7 +33,7 @@ function ProductDetailPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-2 gap-12 mb-16">
           <div>
-            <div className="bg-gray-100 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 overflow-hidden">
               <img
                 src="https://jojdwiugelqhcajbccxn.supabase.co/storage/v1/object/public/images/1763656290995-c168911f-9ffd-45cc-9be0-f9a8ce27f3e7-screenshot.jpg"
                 alt="Permute Buffer Modulation Matrix"
@@ -121,7 +121,7 @@ function ProductDetailPage() {
                 to="/collections/devices/products/permute-buffer-modulation-matrix-ableton-effects-plugin"
                 className="group cursor-pointer"
               >
-                <div className="relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
+                <div className="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300 mb-3">
                   <div className="aspect-square">
                     <img
                       src={product.image}

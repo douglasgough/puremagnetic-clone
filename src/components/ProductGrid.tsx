@@ -31,7 +31,7 @@ function ProductGrid() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {products.map((product) => (
             <div key={product.id} className="group cursor-pointer">
-              <div className="relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="relative overflow-hidden bg-white shadow-md hover:shadow-xl transition-shadow duration-300">
                 <div className="aspect-square">
                   <img
                     src={product.image}

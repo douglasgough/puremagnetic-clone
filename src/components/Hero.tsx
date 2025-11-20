@@ -20,7 +20,7 @@ function Hero() {
             <img
               src="https://jojdwiugelqhcajbccxn.supabase.co/storage/v1/object/public/images/1763655131194-c168911f-9ffd-45cc-9be0-f9a8ce27f3e7-screenshot.jpg"
               alt="Plugin Collection"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full h-auto shadow-lg"
             />
           </div>
         </div>
