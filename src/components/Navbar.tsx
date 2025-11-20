@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Menu, X, Search, User, ShoppingCart } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -43,6 +43,9 @@ function Navbar() {
                 </Link>
                 <a href="#" className="text-sm font-medium text-gray-900 hover:text-gray-600">
                   HELP
+                </a>
+                <a href="/index.html" className="text-sm font-medium text-purple-600 hover:text-purple-700">
+                  HTML VERSION
                 </a>
               </div>
             </div>
@@ -96,17 +99,17 @@ function Navbar() {
               <a href="#" className="block text-base font-medium text-gray-900 hover:text-gray-600 py-2">
                 HELP
               </a>
+              <a href="/index.html" className="block text-base font-medium text-purple-600 hover:text-purple-700 py-2">
+                HTML VERSION
+              </a>
               <div className="pt-4 border-t border-gray-200 space-y-4">
                 <button className="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
-                  <Search className="w-5 h-5" />
                   SEARCH
                 </button>
                 <button className="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
-                  <User className="w-5 h-5" />
                   ACCOUNT
                 </button>
                 <button className="flex items-center gap-3 text-base font-medium text-gray-900 hover:text-gray-600 py-2">
-                  <ShoppingCart className="w-5 h-5" />
                   CART
                 </button>
               </div>
